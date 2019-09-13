@@ -16,6 +16,15 @@ public class PhoneNumberInputOutput {
 
     private Scanner sc = new Scanner(System.in);
     private static String phoneNumber;
+    private boolean valid;
+
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
 
     public PhoneNumberInputOutput() {
     }
@@ -28,22 +37,11 @@ public class PhoneNumberInputOutput {
         return phoneNumber;
     }
 
-    public void numberInput() {
-        System.out.println("Phone number:");
-        setPhoneNumber();
-    }
-
-    //prints phone number as entered by the user   
-    public void numberOutput() {
-        System.out.println("Your phone number is:");
-        System.out.println(getPhoneNumber());
-    }
-
     //prints the possible phone numbers that come of after identifing number ambiguities
     public void numberOutput(NumberAmbiguitiesIdentifier interpretations) {
-        System.out.println("Your phone number is:");      
+        System.out.println("Your phone number is:");
         for (String i : interpretations.getPhoneNumberInterpretationSet()) {
-            System.out.println(i.replace("\\s",""));
+            System.out.println(i.replace("\\s", ""));
         }
     }
 

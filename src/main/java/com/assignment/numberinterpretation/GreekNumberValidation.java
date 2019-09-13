@@ -15,34 +15,30 @@ public class GreekNumberValidation {
 
     private PhoneNumberInputOutput phoneNumberInputOutput = new PhoneNumberInputOutput();
 
-    public void checkIfPhoneNumberIsValid() {
-        String recordedPhoneNumber = phoneNumberInputOutput.getPhoneNumber();
-        String recordedPhoneNumberWithoutSpaces = recordedPhoneNumber.replaceAll("\\s", "");
+    public void checkIfPhoneNumberIsValid(String phoneNumber) {
 
-//first checks if the given input includes only numbers
-        if (recordedPhoneNumberWithoutSpaces.matches("[0-9]+")) {
-
-//checks if phone number has 10 or 14 digits and starts with 2 or 69 and 00302 or 003069 respectively.
-            if (!(recordedPhoneNumberWithoutSpaces.length() == 10 && (recordedPhoneNumberWithoutSpaces.startsWith("2") || recordedPhoneNumberWithoutSpaces.startsWith("69")))) {
-                if (!(recordedPhoneNumberWithoutSpaces.length() == 14 && (recordedPhoneNumberWithoutSpaces.startsWith("0032") || recordedPhoneNumberWithoutSpaces.startsWith("003069")))) {
-                    System.out.println("invalid phone number please enter your phone number again");
-                    phoneNumberInputOutput.setPhoneNumber();
-                    checkIfPhoneNumberIsValid();
-                } else {
-                    System.out.println("valid phone number");
-
-                }
-
+ //checks if phone number has 10 or 14 digits and starts with 2 or 69 and 00302 or 003069 respectively.
+        if (!(phoneNumber.length() == 10 && (phoneNumber.startsWith("2") || phoneNumber.startsWith("69")))) {
+            if (!(phoneNumber.length() == 14 && (phoneNumber.startsWith("0032") || phoneNumber.startsWith("003069")))) {
+                System.out.println("invalid phone number please enter your phone number again");
+                phoneNumberInputOutput.setPhoneNumber();
+                checkIfPhoneNumberIsValid();
             } else {
                 System.out.println("valid phone number");
-
             }
-
         } else {
-            System.out.println("invalid number please enter your phone number again again");
-            phoneNumberInputOutput.setPhoneNumber();
-            checkIfPhoneNumberIsValid();
+            System.out.println("valid phone number");
         }
+    }
 
+    //checks if the given input includes only numbers
+    public boolean checkInputValidation() {
+        String recordedPhoneNumber = phoneNumberInputOutput.getPhoneNumber();
+        String recordedPhoneNumberWithoutSpaces = recordedPhoneNumber.replaceAll("\\s", "");
+        if (!recordedPhoneNumberWithoutSpaces.matches("[0-9]+")) {
+            System.out.println("Your input does not include only digits");
+            return true;
+        }
+        return false;
     }
 }

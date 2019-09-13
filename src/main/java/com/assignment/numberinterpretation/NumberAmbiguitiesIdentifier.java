@@ -21,17 +21,19 @@ public class NumberAmbiguitiesIdentifier {
         phoneNumberInterpretationSet.add(phoneNumberInputOutput.getPhoneNumber().replaceAll("\\s", ""));
 
         for (int i = 0; i < parts.length; i++) {
-            //element of input list is 13-19, 21-29 , 31-39, ... , 91-99   
+            //e.g 89->89 or 809 (excluding 11 and 12)  
             if (parts[i].length() == 2 && !parts[i].endsWith("0")
                     && !parts[i].equals("11") && !parts[i].equals("12")) {
                 String temp = new String(parts[i]);
                 parts[i] = interprentTwoDigitNotEndingWithZeroParts(parts[i]);
-                String interpretation = String.join("",parts);
-                phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                String interpretation = String.join("", parts);
+                phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                 identifyNaturalNumberAmbiguities();
-                parts[i] =temp;
-                
+                parts[i] = temp;
+
             }
+            //e.g 80 3->803 or 83 (excluding 10 1 and 10 2) 
+//            but 80 0->800
             if (parts.length - i > 1) {
                 if (parts[i].length() == 2 && parts[i].endsWith("0")
                         && parts[i + 1].length() == 1 && !parts[i + 1].equals("0")
@@ -39,7 +41,7 @@ public class NumberAmbiguitiesIdentifier {
                     String temp = new String(parts[i]);
                     parts[i] = interprentTwoDigitEndingWithZeroParts(parts[i]);
                     String interpretation = String.join("", parts);
-                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                     identifyNaturalNumberAmbiguities();
                     parts[i] = temp;
                 }
@@ -49,7 +51,7 @@ public class NumberAmbiguitiesIdentifier {
                     String temp = new String(parts[i]);
                     parts[i] = interprentTreeDigitEndingWithTwoZeroParts(parts[i]);
                     String interpretation = String.join("", parts);
-                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                     identifyNaturalNumberAmbiguities();
                     parts[i] = temp;
                 }
@@ -59,7 +61,7 @@ public class NumberAmbiguitiesIdentifier {
                     String temp = new String(parts[i]);
                     parts[i] = interprentTreeDigitEndingWithZeroPartsFollowedByOneDigit(parts[i]);
                     String interpretation = String.join("", parts);
-                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                     identifyNaturalNumberAmbiguities();
                     parts[i] = temp;
                 }
@@ -69,17 +71,17 @@ public class NumberAmbiguitiesIdentifier {
                     String temp = new String(parts[i]);
                     parts[i] = interprentTreeDigitEndingWithZeroPartsFollowedByOneDigit(parts[i]);
                     String interpretation = String.join("", parts);
-                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                    phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                     identifyNaturalNumberAmbiguities();
                     parts[i] = temp;
                 }
             }
-            //e.g 802 ->802 or 800 2 but 800 0->8000
+            //e.g 802 ->802 or 8002 but 800 0->8000
             if (parts[i].length() == 3 && parts[i].charAt(1) == '0' && !parts[i].endsWith("0")) {
                 String temp = new String(parts[i]);
                 parts[i] = interprentTreeDigitWithZeroInTheMiddleParts(parts[i]);
                 String interpretation = String.join("", parts);
-                phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                 identifyNaturalNumberAmbiguities();
                 parts[i] = temp;
             }
@@ -89,21 +91,21 @@ public class NumberAmbiguitiesIdentifier {
                 String temp1 = new String(parts[i]);
                 parts[i] = interprentTreeDigitWithoutZeroParts(parts[i]);
                 String interpretation = String.join("", parts);
-                phoneNumberInterpretationSet.add(interpretation.replaceAll(" ",""));
+                phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
                 if (!temp.endsWith("11") && !temp.endsWith("12")) {
                     parts[i] = parts[i].substring(0, 3) + interprentTwoDigitNotEndingWithZeroParts(temp.substring(1, 3));
                     String secondInterpretation = String.join("", parts);
-                    phoneNumberInterpretationSet.add(secondInterpretation.replaceAll(" ",""));
+                    phoneNumberInterpretationSet.add(secondInterpretation.replaceAll(" ", ""));
                 }
                 parts[i] = temp;
                 parts[i] = interprentTreeDigitWithoutZerosPartsB(parts[i]);
                 String secondInterpretation = String.join("", parts);
-                phoneNumberInterpretationSet.add(secondInterpretation.replaceAll(" ",""));
+                phoneNumberInterpretationSet.add(secondInterpretation.replaceAll(" ", ""));
                 identifyNaturalNumberAmbiguities();
                 parts[i] = temp1;
             }
-            }}
-    
+        }
+    }
 
     public void setParts(String[] parts) {
         this.parts = parts;
@@ -114,7 +116,7 @@ public class NumberAmbiguitiesIdentifier {
     }
 
     public String interprentTwoDigitNotEndingWithZeroParts(String phoneNumberPart) {
-        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1,"0 ").toString();
+        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1, "0 ").toString();
         return modifiedPart;
     }
 
@@ -124,7 +126,7 @@ public class NumberAmbiguitiesIdentifier {
     }
 
     public String interprentTreeDigitEndingWithTwoZeroParts(String phoneNumberPart) {
-        String modifiedPart = new StringBuilder().append(phoneNumberPart).delete(1,3).toString();
+        String modifiedPart = new StringBuilder().append(phoneNumberPart).delete(1, 3).toString();
         return modifiedPart;
     }
 
@@ -134,17 +136,17 @@ public class NumberAmbiguitiesIdentifier {
     }
 
     public String interprentTreeDigitWithZeroInTheMiddleParts(String phoneNumberPart) {
-        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1,"0").toString();
+        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1, "0").toString();
         return modifiedPart;
     }
 
     public String interprentTreeDigitWithoutZeroParts(String phoneNumberPart) {
-        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1,"00").toString();
+        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1, "00").toString();
         return modifiedPart;
     }
 
     public String interprentTreeDigitWithoutZerosPartsB(String phoneNumberPart) {
-        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(2,"0").toString();
+        String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(2, "0").toString();
         return modifiedPart;
     }
 
