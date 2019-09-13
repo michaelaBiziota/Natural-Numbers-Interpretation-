@@ -1,5 +1,5 @@
 com\assignment\numberinterpretation\App.class
-com\assignment\numberinterpretation\NaturalNumberAmbiguitiesIdentifier.class
+com\assignment\numberinterpretation\Menu.class
 com\assignment\numberinterpretation\GreekNumberValidation.class
 com\assignment\numberinterpretation\PhoneNumberInputOutput.class
 com\assignment\numberinterpretation\NumberAmbiguitiesIdentifier.class

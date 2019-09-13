@@ -15,19 +15,15 @@ public class GreekNumberValidation {
 
     private PhoneNumberInputOutput phoneNumberInputOutput = new PhoneNumberInputOutput();
 
-    public void checkIfPhoneNumberIsValid(String phoneNumber) {
+    public static boolean checkIfPhoneNumberIsValid(String phoneNumber) {
 
- //checks if phone number has 10 or 14 digits and starts with 2 or 69 and 00302 or 003069 respectively.
-        if (!(phoneNumber.length() == 10 && (phoneNumber.startsWith("2") || phoneNumber.startsWith("69")))) {
-            if (!(phoneNumber.length() == 14 && (phoneNumber.startsWith("0032") || phoneNumber.startsWith("003069")))) {
-                System.out.println("invalid phone number please enter your phone number again");
-                phoneNumberInputOutput.setPhoneNumber();
-                checkIfPhoneNumberIsValid();
-            } else {
-                System.out.println("valid phone number");
-            }
+        //checks if phone number has 10 or 14 digits and starts with 2 or 69 and 00302 or 003069 respectively.
+        if (phoneNumber.length() == 10 && (phoneNumber.startsWith("2") || phoneNumber.startsWith("69"))) {
+            return true;
+        } else if (phoneNumber.length() == 14 && (phoneNumber.startsWith("0032") || phoneNumber.startsWith("003069"))) {
+            return true;
         } else {
-            System.out.println("valid phone number");
+            return false;
         }
     }
 

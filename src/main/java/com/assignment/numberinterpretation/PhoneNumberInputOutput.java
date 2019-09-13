@@ -16,21 +16,13 @@ public class PhoneNumberInputOutput {
 
     private Scanner sc = new Scanner(System.in);
     private static String phoneNumber;
-    private boolean valid;
 
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
 
     public PhoneNumberInputOutput() {
     }
 
     public void setPhoneNumber() {
-        phoneNumber = sc.nextLine();
+        phoneNumber = sc.nextLine().trim();
     }
 
     public String getPhoneNumber() {
@@ -40,8 +32,18 @@ public class PhoneNumberInputOutput {
     //prints the possible phone numbers that come of after identifing number ambiguities
     public void numberOutput(NumberAmbiguitiesIdentifier interpretations) {
         System.out.println("Your phone number is:");
-        for (String i : interpretations.getPhoneNumberInterpretationSet()) {
-            System.out.println(i.replace("\\s", ""));
+        int interpretationNumber = 1;
+        for (String i : interpretations.getPhoneNumberInterpretationSet()) {          
+            System.out.println("Interpretation" + interpretationNumber + ":" + i +" "+ showPhoneNumberValidation(i) );
+            interpretationNumber++;
+        }
+    }
+
+    public String showPhoneNumberValidation(String phoneNumber) {       
+        if (GreekNumberValidation.checkIfPhoneNumberIsValid(phoneNumber) == true) {
+            return("phone Number: Valid");
+        } else {
+            return("phone Number: Invalid");
         }
     }
 
