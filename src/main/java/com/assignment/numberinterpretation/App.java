@@ -8,10 +8,13 @@ public class App
     {
        PhoneNumberInputOutput nio=new PhoneNumberInputOutput();
        GreekNumberValidation gnv=new GreekNumberValidation();
-       NaturalNumberAmbiguitiesIdentifier nnai=new NaturalNumberAmbiguitiesIdentifier();
+//       NaturalNumberAmbiguitiesIdentifier nnai=new NaturalNumberAmbiguitiesIdentifier();
+       NumberAmbiguitiesIdentifier nnai=new NumberAmbiguitiesIdentifier();
        nio.numberInput();
 //       nio.numberOutput();
-//       gnv.checkIfPhoneNumberIsValid();
+////       gnv.checkIfPhoneNumberIsValid();
+//nnai.setPhoneNumberPartsA();
+nnai.splitPhoneNumberIntoParts();
 nnai.identifyNaturalNumberAmbiguities();
 nio.numberOutput(nnai);
 

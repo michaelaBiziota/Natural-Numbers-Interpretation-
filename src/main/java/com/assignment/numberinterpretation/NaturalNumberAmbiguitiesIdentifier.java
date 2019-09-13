@@ -17,14 +17,20 @@ import java.util.List;
 public class NaturalNumberAmbiguitiesIdentifier {
 
     private PhoneNumberInputOutput phoneNumberInputOutput = new PhoneNumberInputOutput();
-    private HashSet<String> phoneNumberInterpretationSet = new HashSet<String>();
+    public static HashSet<String> phoneNumberInterpretationSet = new HashSet<String>();
     private String[] phoneNumberPartsA;
     private String[] phoneNumberPartsB;
 
-    
-    public void identifyNaturalNumberAmbiguities() {
-        phoneNumberPartsA = phoneNumberInputOutput.getPhoneNumber().split("\\s");
-        phoneNumberInterpretationSet.add(phoneNumberInputOutput.getPhoneNumber().replaceAll("\\s", ""));
+    public void setPhoneNumberPartsA() {
+        this.phoneNumberPartsA = phoneNumberInputOutput.getPhoneNumber().split("\\s");
+        phoneNumberInterpretationSet.add(String.join("", phoneNumberPartsA));
+    }
+
+    public String[] getPhoneNumberPartsA() {
+        return phoneNumberPartsA;
+    }
+
+    public void identifyNaturalNumberAmbiguities(String[] phoneNumberPartsA) {
         for (int i = 0; i < phoneNumberPartsA.length; i++) {
             if (phoneNumberPartsA[i].length() == 2) {
                 if (phoneNumberPartsA[i].endsWith("0") && phoneNumberPartsA.length - i > 1) {
@@ -33,6 +39,8 @@ public class NaturalNumberAmbiguitiesIdentifier {
                             phoneNumberPartsA[i] = interprentTwoDigitEndingWithZeroParts(phoneNumberPartsA[i]);
                             String interpretation = String.join("", phoneNumberPartsA);
                             phoneNumberInterpretationSet.add(interpretation);
+                            identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                            setPhoneNumberPartsA();
                         }
                     }
                 }
@@ -42,31 +50,43 @@ public class NaturalNumberAmbiguitiesIdentifier {
                 phoneNumberPartsA[i] = interprentTwoDigitNotEndingWithZeroParts(phoneNumberPartsA[i]);
                 String interpretation = String.join("", phoneNumberPartsA);
                 phoneNumberInterpretationSet.add(interpretation);
+                identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                setPhoneNumberPartsA();
             }
             //e.g 800 34->80034 or 834
-            if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].endsWith("00")
-                    && phoneNumberPartsA.length - i > 1 && phoneNumberPartsA[i + 1].length() == 2) {
-                phoneNumberPartsA[i] = interprentTreeDigitEndingWithTwoZeroParts(phoneNumberPartsA[i]);
-                String interpretation = String.join("", phoneNumberPartsA);
-                phoneNumberInterpretationSet.add(interpretation);
-            }
-            //e.g 800 3-> 8003 or 803 but 800 0-> 8000
-            if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].endsWith("00")
-                    && phoneNumberPartsA.length - i > 1 && phoneNumberPartsA[i + 1].length() == 1 && !phoneNumberPartsA[i + 1].equals("0")) {
-                interprentTreeDigitEndingWithZeroPartsFollowedByOneDigit(phoneNumberPartsA[i]);
-            }
-            //e.g 820 4->8204 or 824 but 820 0->8200
-            if (phoneNumberPartsA.length - i > 1 && phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].charAt(1) != '0' && phoneNumberPartsA[i].endsWith("0")
-                    && phoneNumberPartsA[i + 1].length() == 1 && !phoneNumberPartsA[i + 1].equals("0")) {
-                phoneNumberPartsA[i] = interprentTreeDigitEndingWithZeroPartsFollowedByOneDigit(phoneNumberPartsA[i]);
-                String interpretation = String.join("", phoneNumberPartsA);
-                phoneNumberInterpretationSet.add(interpretation);
+            if (phoneNumberPartsA.length - i > 1) {
+                if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].endsWith("00")
+                        && phoneNumberPartsA[i + 1].length() == 2) {
+                    phoneNumberPartsA[i] = interprentTreeDigitEndingWithTwoZeroParts(phoneNumberPartsA[i]);
+                    String interpretation = String.join("", phoneNumberPartsA);
+                    phoneNumberInterpretationSet.add(interpretation);
+                    identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                setPhoneNumberPartsA();
+                }
+                //e.g 800 3-> 8003 or 803 but 800 0-> 8000
+                if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].endsWith("00")
+                        && phoneNumberPartsA[i + 1].length() == 1 && !phoneNumberPartsA[i + 1].equals("0")) {
+                    interprentTreeDigitEndingWithZeroPartsFollowedByOneDigit(phoneNumberPartsA[i]);
+                    identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                setPhoneNumberPartsA();
+                }
+                //e.g 820 4->8204 or 824 but 820 0->8200
+                if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].charAt(1) != '0' && phoneNumberPartsA[i].endsWith("0")
+                        && phoneNumberPartsA[i + 1].length() == 1 && !phoneNumberPartsA[i + 1].equals("0")) {
+                    phoneNumberPartsA[i] = interprentTreeDigitEndingWithZeroPartsFollowedByOneDigit(phoneNumberPartsA[i]);
+                    String interpretation = String.join("", phoneNumberPartsA);
+                    phoneNumberInterpretationSet.add(interpretation);
+                    identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                setPhoneNumberPartsA();
+                }
             }
             //e.g 802 ->802 or 800 2 but 800 0->8000
             if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].charAt(1) == '0' && !phoneNumberPartsA[i].endsWith("0")) {
                 phoneNumberPartsA[i] = interprentTreeDigitWithZeroInTheMiddleParts(phoneNumberPartsA[i]);
                 String interpretation = String.join("", phoneNumberPartsA);
                 phoneNumberInterpretationSet.add(interpretation);
+                identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                setPhoneNumberPartsA();
             }
             //e.g 825->80025 and 800 20 5 (but 811->800 11 and 812->80012)
             if (phoneNumberPartsA[i].length() == 3 && phoneNumberPartsA[i].indexOf("0") < 0) {
@@ -80,11 +100,13 @@ public class NaturalNumberAmbiguitiesIdentifier {
                 String secondInterpretation = String.join("", phoneNumberPartsA);
                 phoneNumberInterpretationSet.add(secondInterpretation);
                 if (!temp1.endsWith("11") && !temp1.endsWith("12")) {
-                    phoneNumberPartsA[i]=temp1;                 
+                    phoneNumberPartsA[i] = temp1;
                     phoneNumberPartsA[i] = phoneNumberPartsA[i] + interprentTwoDigitNotEndingWithZeroParts(temp1.substring(1, 3));
                     String thirdInterpretation = String.join("", phoneNumberPartsA);
                     phoneNumberInterpretationSet.add(thirdInterpretation);
                 }
+                identifyNaturalNumberAmbiguities(phoneNumberPartsA);
+//                setPhoneNumberPartsA();
             }
         }
 

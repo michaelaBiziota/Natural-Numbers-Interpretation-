@@ -40,10 +40,10 @@ public class PhoneNumberInputOutput {
     }
 
     //prints the possible phone numbers that come of after identifing number ambiguities
-    public void numberOutput(NaturalNumberAmbiguitiesIdentifier interpretations) {
+    public void numberOutput(NumberAmbiguitiesIdentifier interpretations) {
         System.out.println("Your phone number is:");      
         for (String i : interpretations.getPhoneNumberInterpretationSet()) {
-            System.out.println(i);
+            System.out.println(i.replace("\\s",""));
         }
     }
 
