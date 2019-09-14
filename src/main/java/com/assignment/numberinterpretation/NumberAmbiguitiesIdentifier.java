@@ -33,7 +33,7 @@ public class NumberAmbiguitiesIdentifier {
 
             }
             //e.g 80 3->803 or 83 (excluding 10 1 and 10 2) 
-//            but 80 0->800
+            //  but 80 0->800
             if (parts.length - i > 1) {
                 if (parts[i].length() == 2 && parts[i].endsWith("0")
                         && parts[i + 1].length() == 1 && !parts[i + 1].equals("0")
@@ -85,7 +85,7 @@ public class NumberAmbiguitiesIdentifier {
                 identifyNaturalNumberAmbiguities();
                 parts[i] = temp;
             }
-//            //e.g 825->80025 and 820 5 and 800 20 5 (but 811->800 11 and 812->80012)
+            //e.g 825->80025 and 820 5 and 800 20 5 (but 811->800 11 and 812->80012)
             if (parts[i].length() == 3 && parts[i].indexOf("0") < 0) {
                 String temp = new String(parts[i]);
                 String temp1 = new String(parts[i]);
@@ -109,10 +109,6 @@ public class NumberAmbiguitiesIdentifier {
 
     public void setParts(String[] parts) {
         this.parts = parts;
-    }
-
-    public void splitPhoneNumberIntoParts() {
-        setParts(phoneNumberInputOutput.getPhoneNumber().split("\\s"));
     }
 
     public String interprentTwoDigitNotEndingWithZeroParts(String phoneNumberPart) {

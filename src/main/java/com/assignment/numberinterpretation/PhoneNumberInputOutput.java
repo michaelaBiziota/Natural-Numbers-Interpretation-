@@ -47,4 +47,8 @@ public class PhoneNumberInputOutput {
         }
     }
 
+    public String[] splitPhoneNumberIntoParts() {
+        return phoneNumber.split("\\s");
+    }
+
 }

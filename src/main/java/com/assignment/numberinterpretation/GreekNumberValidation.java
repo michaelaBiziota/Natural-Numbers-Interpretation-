@@ -30,10 +30,17 @@ public class GreekNumberValidation {
     //checks if the given input includes only numbers
     public boolean checkInputValidation() {
         String recordedPhoneNumber = phoneNumberInputOutput.getPhoneNumber();
+        String[] phoneNumberParts = phoneNumberInputOutput.splitPhoneNumberIntoParts();
         String recordedPhoneNumberWithoutSpaces = recordedPhoneNumber.replaceAll("\\s", "");
         if (!recordedPhoneNumberWithoutSpaces.matches("[0-9]+")) {
-            System.out.println("Your input does not include only digits");
+            System.out.println("Warning! Your input must include only digits");
             return true;
+        }
+                for (int i = 0; i < phoneNumberParts.length; i++) {
+            if (phoneNumberParts[i].length() > 3) {
+                System.out.println("Warning! Each number in a sequence should be up to a three digit number");
+                return true;
+            }
         }
         return false;
     }
