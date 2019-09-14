@@ -92,10 +92,12 @@ public class NumberAmbiguitiesIdentifier {
                 parts[i] = interprentTreeDigitWithoutZeroParts(parts[i]);
                 String interpretation = String.join("", parts);
                 phoneNumberInterpretationSet.add(interpretation.replaceAll(" ", ""));
+                identifyNaturalNumberAmbiguities();
                 if (!temp.endsWith("11") && !temp.endsWith("12")) {
                     parts[i] = parts[i].substring(0, 3) + interprentTwoDigitNotEndingWithZeroParts(temp.substring(1, 3));
                     String secondInterpretation = String.join("", parts);
                     phoneNumberInterpretationSet.add(secondInterpretation.replaceAll(" ", ""));
+                    identifyNaturalNumberAmbiguities();
                 }
                 parts[i] = temp;
                 parts[i] = interprentTreeDigitWithoutZerosPartsB(parts[i]);

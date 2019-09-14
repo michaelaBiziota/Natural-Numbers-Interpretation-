@@ -26,9 +26,9 @@ public class Menu {
             phoneNumberInputOutput.setPhoneNumber();
             
             exitTheApp();
-        } while (greekNumberValidation.checkInputValidation());
+        } while (greekNumberValidation.checkInputValidation(phoneNumberInputOutput.getPhoneNumber()));
 
-        numberAmbiguitiesIdentifier.setParts(phoneNumberInputOutput.splitPhoneNumberIntoParts());
+        numberAmbiguitiesIdentifier.setParts(phoneNumberInputOutput.splitPhoneNumberIntoParts(phoneNumberInputOutput.getPhoneNumber()));
         numberAmbiguitiesIdentifier.identifyNaturalNumberAmbiguities();
         phoneNumberInputOutput.numberOutput(numberAmbiguitiesIdentifier);
         

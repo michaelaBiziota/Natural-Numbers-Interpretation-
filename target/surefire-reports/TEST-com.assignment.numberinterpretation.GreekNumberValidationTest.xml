@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.106" tests="2" errors="1" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.079" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -7,7 +7,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1253"/>
-    <property name="java.class.path" value="D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\test-classes;D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\classes;C:\Users\bizmi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\bizmi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="java.class.path" value="D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\test-classes;D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\classes;C:\Users\bizmi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\bizmi\.m2\repository\junit\junit\4.12\junit-4.12.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -18,8 +18,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\bizmi\AppData\Local\Temp\surefire712390079140535105\surefirebooter8785887896948206512.jar C:\Users\bizmi\AppData\Local\Temp\surefire712390079140535105 2019-09-14T16-18-58_895-jvmRun1 surefire8137819330837198749tmp surefire_05734656333510758461tmp"/>
-    <property name="surefire.test.class.path" value="D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\test-classes;D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\classes;C:\Users\bizmi\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\bizmi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
+    <property name="sun.java.command" value="C:\Users\bizmi\AppData\Local\Temp\surefire1855910977609612833\surefirebooter3401391226119671825.jar C:\Users\bizmi\AppData\Local\Temp\surefire1855910977609612833 2019-09-14T23-54-19_109-jvmRun1 surefire5243357063405191595tmp surefire_0427091549118502944tmp"/>
+    <property name="test" value="com.assignment.numberinterpretation.GreekNumberValidationTest"/>
+    <property name="surefire.test.class.path" value="D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\test-classes;D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\classes;C:\Users\bizmi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\bizmi\.m2\repository\junit\junit\4.12\junit-4.12.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\bizmi"/>
     <property name="user.language" value="el"/>
@@ -31,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\bizmi\AppData\Local\Temp\surefire712390079140535105\surefirebooter8785887896948206512.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\bizmi\AppData\Local\Temp\surefire1855910977609612833\surefirebooter3401391226119671825.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,18 +62,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testCheckInputValidation" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.013">
-    <error type="java.lang.NullPointerException">java.lang.NullPointerException
-	at com.assignment.numberinterpretation.GreekNumberValidationTest.testCheckInputValidation(GreekNumberValidationTest.java:62)
-</error>
-    <system-out><![CDATA[checkInputValidation
-]]></system-out>
-  </testcase>
-  <testcase name="testCheckIfPhoneNumberIsValid" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0">
-    <failure message="The test case is a prototype." type="java.lang.AssertionError">java.lang.AssertionError: The test case is a prototype.
-	at com.assignment.numberinterpretation.GreekNumberValidationTest.testCheckIfPhoneNumberIsValid(GreekNumberValidationTest.java:51)
-</failure>
-    <system-out><![CDATA[checkIfPhoneNumberIsValid
-]]></system-out>
-  </testcase>
+  <testcase name="testCheckInvalidPhoneNumber" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.005"/>
+  <testcase name="testCheckValidPhoneNumber" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0"/>
+  <testcase name="testCheckInputValidation" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.003"/>
 </testsuite>

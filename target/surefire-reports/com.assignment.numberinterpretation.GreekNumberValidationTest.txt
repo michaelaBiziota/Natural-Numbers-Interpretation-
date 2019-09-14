@@ -1,12 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.assignment.numberinterpretation.GreekNumberValidationTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 1, Skipped: 0, Time elapsed: 0.106 s <<< FAILURE! - in com.assignment.numberinterpretation.GreekNumberValidationTest
-testCheckInputValidation(com.assignment.numberinterpretation.GreekNumberValidationTest)  Time elapsed: 0.013 s  <<< ERROR!
-java.lang.NullPointerException
-	at com.assignment.numberinterpretation.GreekNumberValidationTest.testCheckInputValidation(GreekNumberValidationTest.java:62)
-
-testCheckIfPhoneNumberIsValid(com.assignment.numberinterpretation.GreekNumberValidationTest)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: The test case is a prototype.
-	at com.assignment.numberinterpretation.GreekNumberValidationTest.testCheckIfPhoneNumberIsValid(GreekNumberValidationTest.java:51)
-
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in com.assignment.numberinterpretation.GreekNumberValidationTest
