@@ -21,9 +21,13 @@ public class PhoneNumberInputOutput {
     public PhoneNumberInputOutput() {
     }
 
-    public void setPhoneNumber() {
-        phoneNumber = sc.nextLine().trim();
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumberInputOutput.phoneNumber = phoneNumber;
     }
+
+//    public void setPhoneNumber() {
+//        phoneNumber = sc.nextLine().trim();
+//    }
 
     public String getPhoneNumber() {
         return phoneNumber;

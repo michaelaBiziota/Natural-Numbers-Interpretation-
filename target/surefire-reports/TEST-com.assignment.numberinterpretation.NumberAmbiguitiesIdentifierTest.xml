@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.079" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0.125" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,8 +18,8 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\bizmi\AppData\Local\Temp\surefire1855910977609612833\surefirebooter3401391226119671825.jar C:\Users\bizmi\AppData\Local\Temp\surefire1855910977609612833 2019-09-14T23-54-19_109-jvmRun1 surefire5243357063405191595tmp surefire_0427091549118502944tmp"/>
-    <property name="test" value="com.assignment.numberinterpretation.GreekNumberValidationTest"/>
+    <property name="sun.java.command" value="C:\Users\bizmi\AppData\Local\Temp\surefire1396270873409526555\surefirebooter6821611663956372215.jar C:\Users\bizmi\AppData\Local\Temp\surefire1396270873409526555 2019-09-15T12-05-23_330-jvmRun1 surefire5962992189121553431tmp surefire_09195608078606173843tmp"/>
+    <property name="test" value="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest"/>
     <property name="surefire.test.class.path" value="D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\test-classes;D:\Εγγραφα\NetBeansProjects\standardJava\numberInterpretation\target\classes;C:\Users\bizmi\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\bizmi\.m2\repository\junit\junit\4.12\junit-4.12.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\bizmi"/>
@@ -32,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\bizmi\AppData\Local\Temp\surefire1855910977609612833\surefirebooter3401391226119671825.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\bizmi\AppData\Local\Temp\surefire1396270873409526555\surefirebooter6821611663956372215.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -62,7 +62,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testCheckInvalidPhoneNumber" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.005"/>
-  <testcase name="testCheckValidPhoneNumber" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0"/>
-  <testcase name="testCheckInputValidation" classname="com.assignment.numberinterpretation.GreekNumberValidationTest" time="0.003"/>
+  <testcase name="testInterprentTreeDigitEndingWithTwoZeroParts" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0.015"/>
+  <testcase name="testInterprentTwoDigitNotEndingWithZeroParts" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testInterprentTreeDigitEndingWithZeroPartsFollowedByOneDigit" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testInterprentTreeDigitWithZeroInTheMiddleParts" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testInterprentTwoDigitEndingWithZeroParts" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testInterprentTreeDigitWithoutZeroParts" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testInterprentTreeDigitWithoutZerosPartsB" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testIdentifyNaturalNumberAmbiguities2" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
+  <testcase name="testIdentifyNaturalNumberAmbiguities" classname="com.assignment.numberinterpretation.NumberAmbiguitiesIdentifierTest" time="0"/>
 </testsuite>

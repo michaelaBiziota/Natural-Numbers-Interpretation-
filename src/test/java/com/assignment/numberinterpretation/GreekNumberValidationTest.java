@@ -25,31 +25,7 @@ public class GreekNumberValidationTest {
     
     public GreekNumberValidationTest() {
     }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
-    /**
-     * Test of checkIfPhoneNumberIsValid method, of class GreekNumberValidation.
-     */
-    
-//    @Nested
-//    class TestCheckIfPhoneNumberIsValid {
-
-    
     @Test
     public void testCheckInvalidPhoneNumber() {
         boolean expResult = false;

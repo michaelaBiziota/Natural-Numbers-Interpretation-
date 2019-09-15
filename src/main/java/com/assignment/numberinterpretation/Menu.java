@@ -16,6 +16,7 @@ public class Menu {
     private PhoneNumberInputOutput phoneNumberInputOutput = new PhoneNumberInputOutput();
     private NumberAmbiguitiesIdentifier numberAmbiguitiesIdentifier = new NumberAmbiguitiesIdentifier();
     private GreekNumberValidation greekNumberValidation = new GreekNumberValidation();
+    private Scanner sc=new Scanner(System.in);
 
     public void startTheApp() {
         do {
@@ -23,7 +24,7 @@ public class Menu {
             System.out.println("Your input should be a sequence of numbers separated by space.");
             System.out.println("Each number in a sequence should be up to a three digit number.");
             System.out.println("Press 'e' to exit");           
-            phoneNumberInputOutput.setPhoneNumber();
+            phoneNumberInputOutput.setPhoneNumber(sc.nextLine().trim());
             
             exitTheApp();
         } while (greekNumberValidation.checkInputValidation(phoneNumberInputOutput.getPhoneNumber()));

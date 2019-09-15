@@ -113,6 +113,10 @@ public class NumberAmbiguitiesIdentifier {
         this.parts = parts;
     }
 
+    public PhoneNumberInputOutput getPhoneNumberInputOutput() {
+        return phoneNumberInputOutput;
+    }
+
     public String interprentTwoDigitNotEndingWithZeroParts(String phoneNumberPart) {
         String modifiedPart = new StringBuilder().append(phoneNumberPart).insert(1, "0 ").toString();
         return modifiedPart;
