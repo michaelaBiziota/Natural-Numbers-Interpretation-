@@ -25,9 +25,6 @@ public class PhoneNumberInputOutput {
         PhoneNumberInputOutput.phoneNumber = phoneNumber;
     }
 
-//    public void setPhoneNumber() {
-//        phoneNumber = sc.nextLine().trim();
-//    }
 
     public String getPhoneNumber() {
         return phoneNumber;
